@@ -49,23 +49,17 @@ export class News extends Component {
       <div className="container my-3">
           <h2>NewsMedia - Top Headlines</h2>
           <div className="row">
-            <div className="col-md-4">
-          <NewsItem title="myTitle" description="mydesc" imageUrl="https://static.toiimg.com/thumb/imgsize-77110,msid-90059760,width-650,resizemode-4/90059760.jpg" newsUrl="TODO"/>
-          </div>
+          {this.state.articles.map((element)=>{
 
-          <div className="col-md-4">
-          <NewsItem title="myTitle" description="mydesc"/>
+            return <div className="col-md-4" key={element.url}>
+          <NewsItem title={element.title.slice(0, 45)} description={element.description.slice(0, 88)} imageUrl={element.urlToImage} newsUrl={element.url}/>
           </div>
-
-          <div className="col-md-4">
-          <NewsItem title="myTitle" description="mydesc"/>
-          </div>
+          })}
 
           </div>
       </div>
     )
   }
 }
-
 
 export default News
