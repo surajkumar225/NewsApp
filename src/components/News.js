@@ -31,14 +31,19 @@ capitalizeFirstLetter = (string)=> {
 }
  
 async updateNews(){
+  this.props.setProgress(10);
   const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=a4e7f83cb65f4c6a87e5520c91050f27&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({loading: true});
     let data = await fetch(url);
+  this.props.setProgress(40);
     let parsedData = await data.json()
     console.log(parsedData);
+  this.props.setProgress(70);
     this.setState({articles: parsedData.articles,
       totalResults: parsedData.totalResults,
       loading: false  })
+  this.props.setProgress(100);
+
 }
 
   async componentDidMount(){
