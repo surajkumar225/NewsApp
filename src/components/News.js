@@ -96,7 +96,7 @@ async updateNews(){
      console.log("render")
     return (
       <div className="container my-3">
-          <h2 className="text-center" style={{margin: '20px'}}>NewsMedia - Top Headlines #{this.capitalizeFirstLetter(this.props.category)}</h2>
+          <h2 className="text-center" style={{margin: '20px', marginTop: '90px'}}>NewsMedia - Top Headlines #{this.capitalizeFirstLetter(this.props.category)}</h2>
           {this.state.loading && <Spinner/>}
           <div className="row">
           {!this.state.loading && this.state.articles.map((element)=>{
